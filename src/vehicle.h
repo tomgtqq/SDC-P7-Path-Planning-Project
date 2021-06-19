@@ -66,8 +66,6 @@ class Car {
   // FSM
   vector<states> fsm = {S_LANE_KEEP};
   actions next_action = A_KEEP;
-
-  bool scan_ = false;
 };
 
 #endif  // VEHICLE_H
