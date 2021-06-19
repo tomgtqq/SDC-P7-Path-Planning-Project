@@ -58,7 +58,7 @@ class Car {
   double safe_distance = 20.0;
 
   // speed limit
-  double speed_limit = 49.5;
+  double speed_limit = 49.0;
 
   actions planning(const vector<vector<double>> &sensor_data, int prev_size);
 
@@ -66,8 +66,6 @@ class Car {
   // FSM
   vector<states> fsm = {S_LANE_KEEP};
   actions next_action = A_KEEP;
-
-  bool scan_ = false;
 };
 
 #endif  // VEHICLE_H
