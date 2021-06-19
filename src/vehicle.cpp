@@ -82,7 +82,6 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
          d > (2 + 4 * (curr_lane - 1) - 2))) {
       if (curr_lane > 0) {
         if (abs(check_car_s - s) > 3.0 * safe_distance &&
-            // abs(check_car_s - s) < 3.0 * safe_distance &&
             fsm.back() == S_PRE_LANE_CHANGE_LEFT) {
           next_action = A_TURN_LEFT;
           fsm.pop_back();
@@ -96,7 +95,6 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
         d > (2 + 4 * (curr_lane + 1) - 2)) {
       if (curr_lane < 2) {
         if (abs(check_car_s - s) > 3.0 * safe_distance &&
-            // abs(check_car_s - s) < 3.0 * safe_distance &&
             fsm.back() == S_PRE_LANE_CHANGE_RIGHT) {
           next_action = A_TURN_RIGHT;
           fsm.pop_back();
