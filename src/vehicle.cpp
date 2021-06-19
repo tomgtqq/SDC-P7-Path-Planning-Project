@@ -9,6 +9,9 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
   // if under speed limit , accelerate in highway
   next_action = ref_vel < speed_limit ? A_ACCELERATE : A_KEEP;
 
+  bool left_safe = true;
+  bool right_safe = true;
+
   for (int i = 0; i < sensor_data.size(); i++) {
     float d = sensor_data[i][6];
 
@@ -81,11 +84,16 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
     if ((d < (2 + 4 * (curr_lane - 1) + 2) &&
          d > (2 + 4 * (curr_lane - 1) - 2))) {
       if (curr_lane > 0) {
-        if (abs(check_car_s - s) > 3.0 * safe_distance &&
+        if (fabs(check_car_s - s) > 3.0 * safe_distance &&
             fsm.back() == S_PRE_LANE_CHANGE_LEFT) {
           next_action = A_TURN_LEFT;
+          if (left_safe) {
+            next_action = A_TURN_LEFT;
+          }
           fsm.pop_back();
           fsm.push_back(S_LANE_CHANGE_LEFT);
+        } else if (fabs(check_car_s - s) < 3.0 * safe_distance) {
+          left_safe &= false;
         }
       }
     }
@@ -94,11 +102,15 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
     if (d < (2 + 4 * (curr_lane + 1) + 2) &&
         d > (2 + 4 * (curr_lane + 1) - 2)) {
       if (curr_lane < 2) {
-        if (abs(check_car_s - s) > 3.0 * safe_distance &&
+        if (fabs(check_car_s - s) > 3.0 * safe_distance &&
             fsm.back() == S_PRE_LANE_CHANGE_RIGHT) {
-          next_action = A_TURN_RIGHT;
+          if (right_safe) {
+            next_action = A_TURN_RIGHT;
+          }
           fsm.pop_back();
           fsm.push_back(S_LANE_CHANGE_RIGHT);
+        } else if (fabs(check_car_s - s) < 3.0 * safe_distance) {
+          right_safe &= false;
         }
       }
     }
