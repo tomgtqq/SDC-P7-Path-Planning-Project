@@ -32,3 +32,6 @@
 *.app
 .DS_Store
 term3_sim/
+build/
+src/.vscode/c_cpp_properties.json
+src/.vscode/settings.json
