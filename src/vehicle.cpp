@@ -37,9 +37,9 @@ actions Car::planning(const vector<vector<double>> &sensor_data,
               break;
             }
             // for other statues
-            // next_action = A_BRAKE;
-            // return next_action;
-            break;
+            next_action = A_BRAKE;
+            return next_action;
+            // break;
 
           case S_PRE_LANE_CHANGE_LEFT:
             next_action = A_BRAKE;
