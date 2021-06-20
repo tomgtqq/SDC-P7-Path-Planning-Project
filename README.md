@@ -1,6 +1,5 @@
-# CarND-Path-Planning-Project
+# Self-Driving Car Engineer Nanodegree Program
 
-Self-Driving Car Engineer Nanodegree Program
 ![change lane](./images/change_lane.gif)
 
 ### Finite State Machines (FSM)
