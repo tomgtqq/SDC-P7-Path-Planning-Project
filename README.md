@@ -162,7 +162,10 @@ the path has processed since last time.
 
 ## Tips
 
-A really helpful resource for doing this project and creating smooth trajectories was using <http://kluge.in-chemnitz.de/opensource/spline/>, the spline function is in a single hearder file is really easy to use.
+- A really helpful resource for doing this project and creating smooth trajectories was using <http://kluge.in-chemnitz.de/opensource/spline/>, the spline function is in a single hearder file is really easy to use.
+
+- Eigen Library
+<https://eigen.tuxfamily.org/dox/GettingStarted.html>
 
 ---
 
@@ -206,7 +209,7 @@ Please (do your best to) stick to [Google's C++ style guide](https://google.gith
 
 ### Authors
 
-- **Tom Ge** - *Data egineer* - [github profile](https://github.com/tomgtqq)
+- **Tom Ge** - *Self-Driving Car egineer* - [github profile](https://github.com/tomgtqq)
 
 ### License
 
