@@ -66,6 +66,10 @@ class Car {
   // FSM
   vector<states> fsm = {S_LANE_KEEP};
   actions next_action = A_KEEP;
+
+  bool left_safe = true;
+  bool right_safe = true;
+  bool select = false;
 };
 
 #endif  // VEHICLE_H
